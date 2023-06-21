@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="..\buildMultiTargeting\validator-nik-arti-16-digit.props" />
+</Project>
