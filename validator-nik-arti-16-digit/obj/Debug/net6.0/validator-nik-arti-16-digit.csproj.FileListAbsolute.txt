@@ -1,5 +1,6 @@
 D:\source_code\2023\asp net core\validator-nik-arti-16-digit\validator-nik-arti-16-digit\bin\Debug\net6.0\appsettings.Development.json
 D:\source_code\2023\asp net core\validator-nik-arti-16-digit\validator-nik-arti-16-digit\bin\Debug\net6.0\appsettings.json
+D:\source_code\2023\asp net core\validator-nik-arti-16-digit\validator-nik-arti-16-digit\bin\Debug\net6.0\data.json
 D:\source_code\2023\asp net core\validator-nik-arti-16-digit\validator-nik-arti-16-digit\bin\Debug\net6.0\validator-nik-arti-16-digit.exe
 D:\source_code\2023\asp net core\validator-nik-arti-16-digit\validator-nik-arti-16-digit\bin\Debug\net6.0\validator-nik-arti-16-digit.deps.json
 D:\source_code\2023\asp net core\validator-nik-arti-16-digit\validator-nik-arti-16-digit\bin\Debug\net6.0\validator-nik-arti-16-digit.runtimeconfig.json
