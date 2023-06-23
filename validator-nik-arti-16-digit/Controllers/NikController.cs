@@ -24,8 +24,10 @@ namespace validator_nik_arti_16_digit.Controllers
             //nik = 3216124310942756;
             long digit2 = (long)(nik / Math.Pow(10, (int)Math.Floor(Math.Log10(nik)) - 1));
             long digit4 = (long)(nik / Math.Pow(10, (int)Math.Floor(Math.Log10(nik)) - 3));
+            long digit6 = (long)(nik / Math.Pow(10, (int)Math.Floor(Math.Log10(nik)) - 5));
             string stringDigit2 = Convert.ToString(digit2);
             string stringDigit4 = Convert.ToString(digit4);
+            string stringDigit6 = Convert.ToString(digit6);
 
             // parse json
             JsonNode document = JsonNode.Parse(json: DataDaerah.jsonDaerah)!;
@@ -34,12 +36,15 @@ namespace validator_nik_arti_16_digit.Controllers
             string infoProvinsi = (string)provinsiNode[stringDigit2];
             JsonNode kabKotNode = root["KabKot"];
             string infoKabKot = (string)kabKotNode[stringDigit4];
+            JsonNode kecamatanNode = root["Kecamatan"];
+            string infoKecamatan = (string)kecamatanNode[stringDigit6];
 
             //return Ok(dataDaerah?.KabKot);
             return Ok(new
             {
                 provinsi = $"{infoProvinsi}",
-                kota = $"{infoKabKot}"
+                kota = $"{infoKabKot}",
+                kecamatan = $"{infoKecamatan}",
             });
         }
     }
