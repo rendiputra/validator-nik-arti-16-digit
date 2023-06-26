@@ -30,14 +30,30 @@ namespace validator_nik_arti_16_digit.Controllers
             string stringDigit6 = Convert.ToString(digit6);
 
             // parse json
-            JsonNode document = JsonNode.Parse(json: DataDaerah.jsonDaerah)!;
-            JsonNode root = document.Root;
-            JsonNode provinsiNode = root["Provinsi"];
-            string infoProvinsi = (string)provinsiNode[stringDigit2];
-            JsonNode kabKotNode = root["KabKot"];
-            string infoKabKot = (string)kabKotNode[stringDigit4];
-            JsonNode kecamatanNode = root["Kecamatan"];
-            string infoKecamatan = (string)kecamatanNode[stringDigit6];
+            JsonNode document       = JsonNode.Parse(json: DataDaerah.jsonDaerah)!;
+            JsonNode root           = document.Root;
+            JsonNode provinsiNode   = root["Provinsi"];
+            string infoProvinsi     = (string)provinsiNode[stringDigit2];
+            JsonNode kabKotNode     = root["KabKot"];
+            string infoKabKot       = (string)kabKotNode[stringDigit4];
+            JsonNode kecamatanNode  = root["Kecamatan"];
+            string infoKecamatan    = (string)kecamatanNode[stringDigit6];
+
+            // calculate birthday
+            int tgl     = (int)((nik / 100000000) % 100);
+            int bulan   = (int)((nik / 1000000) % 100);
+            int tahun   = (int)((nik / 10000) % 100);
+
+            // gender
+            if (tgl > 40)
+            {
+                gender = "Perempuan";
+                tgl -= 40;
+            }
+            else
+            {
+                gender = "Laki-laki";
+            }
 
             //return Ok(dataDaerah?.KabKot);
             return Ok(new
@@ -45,6 +61,10 @@ namespace validator_nik_arti_16_digit.Controllers
                 provinsi = $"{infoProvinsi}",
                 kota = $"{infoKabKot}",
                 kecamatan = $"{infoKecamatan}",
+                gender = gender,
+                tanngal = tgl,
+                bulan = bulan,
+                tahun = tahun
             });
         }
     }
